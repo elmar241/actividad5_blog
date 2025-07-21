@@ -30,7 +30,9 @@ input, textarea, button{
 /*
 Estilos de la noticia
 */
-
+textarea {
+    resize: none;
+}
 
 @media(width >= 768px) {
     .flex {

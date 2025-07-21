@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { INew } from '../../interfaces/inew.interface';
 import { NEWS } from '../../db/noticias.db';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-blog',
   imports: [FormsModule],
@@ -33,6 +35,15 @@ export class BlogComponent {
 
   // función del click del formulario
   guardarNoticia(): void {
-    console.log(this.newNoticia)
+    if(this.newNoticia.title !== "" && this.newNoticia.url !== "" && this.newNoticia.body !== "" && this.newNoticia.date !== "") {
+      this.arrayNews.push(this.newNoticia)
+      this.newNoticia = {title:"", url:"", body:"", date:""}
+    } else {
+      Swal.fire({
+        title: "Campos Obligatorios",
+        text: "Debes rellenar todos los campos",
+        icon: "error"
+      });
+    }
   }
 }
