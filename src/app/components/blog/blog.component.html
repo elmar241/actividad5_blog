@@ -1,35 +1,10 @@
 <section class="blog">
     <div class="flex">
         <div class="form">
-            <div>
-               <label for="title">Título</label>
-                <input type="text" id="title" [(ngModel)]="newNoticia.title"> 
-            </div>
-            <div>
-               <label for="url">URL</label>
-                <input type="text" id="url" [(ngModel)]="newNoticia.url"> 
-            </div>
-            <div>
-               <label for="body">Cuerpo de Texto</label>
-                <textarea id="body" [(ngModel)]="newNoticia.body" rows="4"></textarea>
-            </div>
-            <div>
-               <label for="date">Fecha</label>
-                <input type="date" id="date" [(ngModel)]="newNoticia.date">
-            </div>
-            <button class="btn" (click)="guardarNoticia()">Guardar Noticia</button>
+            <app-form (noticiaEmitida)="insertarNoticia($event)"></app-form>
         </div>
-        <div class="content" [innerHTML]="cargarContenido()">
-            <!-- <article class="new">
-                <figure>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF4X2ZARl2tOldB_iFRDsMm7xWGT-yFxu-xA&s" alt="">
-                </figure>
-                <h3>Título de la noticia</h3>
-                <div>
-                    Contenido de la noticia
-                </div>
-                <p>Fecha: 12/07/2025</p>
-            </article> -->
+        <div class="content">
+            <app-news-list [noticias]="arrayNews"></app-news-list>
         </div>
     </div>
 </section>
