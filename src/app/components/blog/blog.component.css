@@ -30,12 +30,8 @@ input, textarea, button{
 /*
 Estilos de la noticia
 */
-
-.new {
-    border: 1px solid black;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 5px #444;
+textarea {
+    resize: none;
 }
 
 @media(width >= 768px) {
